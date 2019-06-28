@@ -1,0 +1,46 @@
+<main>
+
+    <a href="/issues" class="d-inline-block mt-2 mb-4">Return to Home Page</a>
+
+    <h3>Issue Id: {{issue._id}}{{!-- ISSUE ID HERE --}}</h3>
+
+    <div class="issue-container-show">
+        <strong>Created:</strong>
+        <p>
+            {{!-- ISSUE CREATED AT HERE --}}
+            {{ issue.createdAt }}
+        </p>
+        <strong>Priority:</strong>
+        <p>
+            {{!-- ISSUE PRIORITY HERE --}}
+            {{ issue.priority }}
+        </p>
+        <strong>Status:</strong>
+        <p>
+            {{!-- ISSUE STATUS HERE --}}
+            {{ issue.status }}
+        </p>
+        <strong>Description:</strong>
+        <p>
+            {{!-- ISSUE DESCRIPTION HERE --}}
+            {{ issue.description }}
+        </p>
+        <strong>Assignee:</strong>
+        <p>
+            {{!-- ISSUE ASSIGNEE NAME HERE --}}
+            {{#if user.name}}
+                {{ user.name }}
+            {{else}}
+                No Assignee
+            {{/if}}
+        </p>
+    </div>
+
+    {{!-- LINK TO THE ISSUE'S EDIT PAGE --}}
+    <a class="btn btn-info"href="/issues/{{issue._id}}/edit">Edit Issue</a>
+
+    {{!-- BUTTON THAT DELETES THE ISSUE --}}
+    <form class="d-inline-block ml-2" action="/issues/{{issue._id}}?_method=DELETE" method="POST">
+        <input class="btn btn-danger" type="submit" value="Delete Issue">
+    </form>
+</main>

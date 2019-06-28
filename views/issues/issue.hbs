@@ -1,0 +1,12 @@
+{{!-- hbs template code for showing the details for a single issue --}}
+<a href="/issues">Back to all issues</a>
+
+<a href="/issues/{{issue._id}}/edit">Edit Issue</a>
+
+<h2>{{issue.name}}</h2>
+
+<a href="/issues/{{issue._id}}/edit">My first Issue</a>
+
+<form action="/issues/{{issue._id}}?_method=DELETE" method="post">
+    <input type="submit" value="Delete Issue">
+</form>
